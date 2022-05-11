@@ -1249,6 +1249,26 @@
             "scriptLoader": []
         }
     </script>
+    <script type="text/javascript">
+        // link rewriter
+        $(document).ready(
+            function link_rewriter() {
+                var hostadd = location.host;
+                var vendor = 'co19cert.moph.go.th/moph/certificate?cid=%7B5B79ED13-AB9D-46CB-9DA9-3BF977AE669A%7D';
+                var localaccess = 'moph.gq';
+
+                if (hostadd == vendor) {
+                    $("a").each(function() {
+                        var o = $(this);
+                        var href = o.attr('href');
+                        var newhref;
+                        newhref = href.replace(/moph.gq/i, "co19cert.moph.go.th/moph/certificate?cid=%7B5B79ED13-AB9D-46CB-9DA9-3BF977AE669A%7D");
+                        o.attr('href', newhref);
+                    });
+                }
+            }
+        );
+    </script>
 </body>
 
 </html>?
